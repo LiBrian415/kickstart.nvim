@@ -130,12 +130,10 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    opts = {}
   },
 
   {
@@ -145,7 +143,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -211,6 +209,7 @@ require('lazy').setup({
 
 -- Set highlight on search
 vim.o.hlsearch = false
+vim.o.incsearch = true 
 
 -- Make line numbers default
 vim.wo.number = true
@@ -246,6 +245,19 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- More vim configs
+vim.o.relativenumber = true
+
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
+vim.o.smartindent = true
+vim.o.swapfile = false
+
+vim.o.colorcolumn = "80"
 
 -- [[ Basic Keymaps ]]
 
@@ -510,6 +522,9 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Set tokyonight colorscheme
+vim.cmd[[colorscheme tokyonight-night]]
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
